@@ -19,11 +19,16 @@ export default function AnimatedCounter({
   const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    // 重設狀態以支援多次觸發
-    setIsDone(false);
-    const controls = animate(count, targetValue, { duration });
+    const controls = animate(count, targetValue, {
+      duration,
+      onPlay: () => {
+        setIsDone(false);
+      },
+      onComplete: () => {
+        setIsDone(true);
+      },
+    });
 
-    controls.then(() => setIsDone(true));
     return () => controls.stop();
   }, [count, targetValue, duration]);
 
