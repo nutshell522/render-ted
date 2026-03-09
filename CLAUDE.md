@@ -28,6 +28,7 @@ npx vitest           # Run all tests (headless Chromium)
 This is a **Next.js 16 App Router** project with TypeScript, Tailwind CSS v4, and a component-driven development workflow via Storybook.
 
 **Key stack:**
+
 - **Styling**: Tailwind CSS v4 (PostCSS) + shadcn/ui token system. CSS variables for design tokens are defined in `src/app/globals.css` using `@theme inline`. Dark mode uses the `.dark` class variant.
 - **Animations**: `motion` (Framer Motion v12) for component animations.
 - **UI primitives**: `radix-ui` + `shadcn` for accessible components; `class-variance-authority` + `clsx` + `tailwind-merge` for variant management.
@@ -36,12 +37,14 @@ This is a **Next.js 16 App Router** project with TypeScript, Tailwind CSS v4, an
 - **Font**: Custom local font `GlowSansTC` (Traditional Chinese), loaded via `next/font/local` in `layout.tsx`, exposed as CSS variable `--font-glow-sans`.
 
 **Component conventions:**
+
 - UI components live in `src/app/components/ui/`.
 - Each component has a co-located `.stories.tsx` file for Storybook.
 - Storybook uses `@storybook/nextjs-vite` framework and `@storybook/addon-vitest` to run story-based tests in a headless Chromium browser via Playwright.
 - Components are `'use client'` by default since they use React hooks and Framer Motion.
 
 **Testing:**
+
 - Tests are written as Storybook stories (`.stories.tsx`). Vitest picks them up via the `storybookTest` plugin configured in `vitest.config.ts`. There is no separate unit test layer.
 
 ## Project Structure
@@ -116,8 +119,8 @@ src/components/ui/Button/
 
 ### Testing Layers
 
-| 類型 | 檔案命名 | 位置 | 工具 |
-|------|----------|------|------|
-| 單元測試 (Unit) | `*.test.ts(x)` | 緊貼元件/Hook/Utils（Colocation） | Vitest |
+| 類型                   | 檔案命名       | 位置                                | 工具         |
+| ---------------------- | -------------- | ----------------------------------- | ------------ |
+| 單元測試 (Unit)        | `*.test.ts(x)` | 緊貼元件/Hook/Utils（Colocation）   | Vitest       |
 | 整合測試 (Integration) | `*.spec.ts(x)` | `src/features/<feature>/__tests__/` | Vitest + MSW |
-| E2E 測試 | — | 根目錄 `e2e/` | Playwright |
+| E2E 測試               | —              | 根目錄 `e2e/`                       | Playwright   |

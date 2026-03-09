@@ -1,6 +1,7 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion';
 
 export default function Home() {
   const count = useMotionValue(0);
@@ -19,12 +20,20 @@ export default function Home() {
   }, [count]);
 
   return (
-    <motion.div style={{ fontSize: '2rem', textAlign: 'center' }} initial={{ scale: 1 }} animate={{ scale: [1, 1.15, 1] }}>
+    <motion.div
+      style={{ fontSize: '2rem', textAlign: 'center' }}
+      initial={{ scale: 1 }}
+      animate={{ scale: [1, 1.15, 1] }}
+    >
       <motion.span>{rounded}</motion.span>
 
       {/* 使用 Framer Motion 製作加號彈出的動態效果 */}
       {isDone && (
-        <motion.span initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} style={{ display: 'inline-block', marginLeft: '5px' }}>
+        <motion.span
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          style={{ display: 'inline-block', marginLeft: '5px' }}
+        >
           +
         </motion.span>
       )}
