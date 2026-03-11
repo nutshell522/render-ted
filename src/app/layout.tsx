@@ -6,12 +6,12 @@ import './globals.css';
 const glowSans = localFont({
   src: [
     {
-      path: '../public/fonts/GlowSansTC-Normal-Regular.otf',
+      path: '../../public/fonts/GlowSansTC-Normal-Regular.otf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../public/fonts/GlowSansTC-Normal-Bold.otf',
+      path: '../../public/fonts/GlowSansTC-Normal-Bold.otf',
       weight: '700',
       style: 'normal',
     },
