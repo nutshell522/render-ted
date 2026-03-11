@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import AnimatedCounter from './AnimatedCounter';
 
 const meta: Meta<typeof AnimatedCounter> = {
-  title: 'UI/AnimatedCounter',
+  title: 'Animations/AnimatedCounter',
   component: AnimatedCounter,
   parameters: {
     layout: 'centered',
