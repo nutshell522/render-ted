@@ -3,14 +3,13 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import AnimatedCounter from './AnimatedCounter';
 
 const meta: Meta<typeof AnimatedCounter> = {
-  title: 'UI/AnimatedCounter', // 在 Storybook 側欄顯示的分類層級
+  title: 'UI/AnimatedCounter',
   component: AnimatedCounter,
   parameters: {
-    layout: 'centered', // 讓元件在預覽視窗居中
+    layout: 'centered',
   },
-  tags: ['autodocs'], // 自動生成文件頁面
+  tags: ['autodocs'],
   argTypes: {
-    // 這裡可以定義 Control 面板的行為（例如顏色選擇器）
     targetValue: { control: { type: 'number', min: 0 } },
   },
 };
