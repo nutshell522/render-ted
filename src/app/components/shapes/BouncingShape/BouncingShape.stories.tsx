@@ -1,13 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import BouncingShape from './BouncingShape';
+import { BouncingShape } from './BouncingShape';
 
 const meta: Meta<typeof BouncingShape> = {
-  title: 'Animations/BouncingShape',
+  title: 'Components/Shapes/BouncingShape',
   component: BouncingShape,
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
   decorators: [
     (Story) => (
-      <div className="p-10 bg-gray-100">
+      <div style={{ width: '100px', height: '100px' }}>
         <Story />
       </div>
     ),

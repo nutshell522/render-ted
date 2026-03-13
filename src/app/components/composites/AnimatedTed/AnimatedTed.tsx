@@ -1,8 +1,26 @@
-import BouncingShape from './BouncingShape';
+import { FC } from 'react';
 
-export default function AnimatedTed() {
+import { BouncingShape } from '@/app/components/shapes/BouncingShape';
+
+export interface AnimatedTedProps {
+  scale?: number;
+}
+
+/**
+ * AnimatedTed 組合元件
+ * * 將多個 BouncingShape 組合在一起，呈現帶有動畫與特定幾何背景的 "Ted" 字樣。
+ * 用於首頁的視覺焦點 (Hero Section) 或是全域的品牌 Logo。
+ * 透過傳入 scale 屬性即可自由縮放，不影響 Flex/Grid 排版空間。
+ */
+export const AnimatedTed: FC<AnimatedTedProps> = ({ scale = 1 }) => {
   return (
-    <div className="flex justify-center items-center gap-2 min-h-screen bg-gray-50">
+    <div
+      className="flex justify-center items-center gap-2 "
+      style={{
+        transform: `scale(${scale})`,
+        transformOrigin: 'center',
+      }}
+    >
       <BouncingShape delay={0} letter="T" letterY={-40} shouldAnimate={false}>
         <rect x="-40" y="-80" width="80" height="80" rx="8" fill="#111827" />
       </BouncingShape>
@@ -28,4 +46,4 @@ export default function AnimatedTed() {
       </BouncingShape>
     </div>
   );
-}
+};
