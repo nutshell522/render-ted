@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Link from 'next/link';
 
 import './globals.css';
 
@@ -31,8 +32,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${glowSans.variable} ${glowSans.variable} antialiased`}>{children}</body>
+    <html lang="zh-hant">
+      <body className={`${glowSans.variable} antialiased flex flex-col h-screen`}>
+        <header className="h-16 border-b-2 border-gray-100">
+          <div></div>
+          <Link href={'/'}>
+            <h1>Ted Yin</h1>
+          </Link>
+        </header>
+        <main className="flex-1 overflow-y-auto">{children}</main>
+        <aside className="border-t-2 border-gray-100 h-14 block md:hidden"></aside>
+      </body>
     </html>
   );
 }
