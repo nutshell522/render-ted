@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Link from 'next/link';
 
+import { Analytics } from '@vercel/analytics/next';
+
 import { ThemeProvider } from './components/providers';
 import './globals.css';
 
@@ -50,6 +52,7 @@ export default function RootLayout({
           <main className="flex-1 overflow-y-auto">{children}</main>
           <aside className="border-t-2 border-gray-100 h-14 block md:hidden"></aside>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
