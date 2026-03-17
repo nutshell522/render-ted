@@ -35,7 +35,12 @@ export default function RootLayout({
   return (
     <html lang="zh-hant" suppressHydrationWarning>
       <body className={`${glowSans.variable} antialiased flex flex-col h-screen`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <header className="h-16 border-b-2 border-gray-100">
             <div></div>
             <Link href={'/'}>
