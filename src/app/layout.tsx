@@ -4,7 +4,8 @@ import Link from 'next/link';
 
 import { Analytics } from '@vercel/analytics/next';
 
-import { ThemeProvider } from './components/providers';
+import { ThemeProvider } from '@/components/providers';
+
 import './globals.css';
 
 const glowSans = localFont({
