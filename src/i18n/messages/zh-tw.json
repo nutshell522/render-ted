@@ -1,0 +1,112 @@
+{
+  "Navigation": {
+    "about": "關於我",
+    "portfolio": "作品集",
+    "contact": "聯絡我",
+    "resume": "下載履歷",
+    "toggleTheme": "切換深淺色",
+    "toggleLanguage": "切換語言"
+  },
+  "Hero": {
+    "name": "Alex Chen",
+    "introCodeSnippet": {
+      "comment1": "// 一位充滿熱情的 React 前端工程師",
+      "comment2": "// 專注於使用者介面、效能優化與互動動畫。"
+    },
+    "technicalProficiency": "技術能力",
+    "activityOverview": "活動總覽",
+    "activityTags": ["2023-2024 技術路線", "10+ 實務專案", "專注於 Next.js 生態"],
+    "cta": {
+      "viewWork": "查看作品",
+      "getInTouch": "與我聯絡"
+    }
+  },
+  "About": {
+    "title": "關於我",
+    "profileSummary": {
+      "title": "個人簡介",
+      "content": "我是一名專注於 React 生態系的前端工程師（自 2023 年 10 月投入實務開發）。我擅長 React、TypeScript 與 Next.js，並具備 Docker 容器化部署及 Adobe Analytics 等數據追蹤工具的串接經驗。我熱衷於打造高互動性且易於維護的現代網頁應用程式。"
+    },
+    "techStack": {
+      "title": "技術堆疊",
+      "frontend": "前端技術",
+      "architecture": "架構與工具",
+      "dataMarketing": "數據與行銷工具"
+    },
+    "workExperience": {
+      "title": "工作經驗",
+      "list": [
+        {
+          "company": "Direct International Co., Ltd.",
+          "role": "全端 / 前端工程師",
+          "period": "2023 年 10 月 - 至今",
+          "achievements": [
+            "優化現有系統架構，提升頁面載入速度",
+            "導入自動化測試，降低上線錯誤率",
+            "與跨部門團隊協作，確保產品交付品質"
+          ]
+        }
+      ]
+    },
+    "learningGoals": {
+      "title": "學習與目標",
+      "content": "持續精進前端與架構能力，同時積極進修英文（準備多益認證），期許未來能與國際團隊順暢協作。"
+    }
+  },
+  "Portfolio": {
+    "title": "作品集",
+    "subtitle": "我近期參與與開發的專案",
+    "searchPlaceholder": "搜尋專案...",
+    "links": {
+      "demo": "Live Demo",
+      "code": "原始碼"
+    },
+    "projects": [
+      {
+        "id": "ecommerce",
+        "title": "電子商務平台",
+        "description": "具備購物車、結帳流程及金流串接的完整線上購物平台。",
+        "tags": ["React", "Next.js", "Tailwind", "Stripe"],
+        "features": [
+          "使用 React Query 快取優化商品篩選功能，減少 60% API 請求",
+          "串接 Stripe 建立支援多元支付的響應式結帳流程",
+          "使用 Storybook 建立可共用的 UI 元件庫，提升團隊開發效率"
+        ],
+        "demoUrl": "https://example.com",
+        "repoUrl": "https://github.com"
+      },
+      {
+        "id": "task-management",
+        "title": "任務管理系統",
+        "description": "具備即時更新與團隊協作功能的專案管理工具。",
+        "tags": ["React", "TypeScript", "Socket.io", "Node.js"],
+        "features": [
+          "使用 Socket.io 架構即時同步系統，可承受 1000+ 並行連線",
+          "實作拖曳式 (Drag-and-drop) 看板，並加上樂觀 UI 更新 (Optimistic UI) 提供即時回饋",
+          "建立基於角色的權限控管系統 (RBAC)"
+        ],
+        "demoUrl": "https://example.com",
+        "repoUrl": "https://github.com"
+      }
+    ]
+  },
+  "Contact": {
+    "title": "與我聯絡",
+    "subtitle": "有任何專案想法或合作機會嗎？隨時歡迎聊聊。",
+    "form": {
+      "nameLabel": "姓名",
+      "namePlaceholder": "您的姓名",
+      "emailLabel": "電子郵件",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "訊息內容",
+      "messagePlaceholder": "請簡述您的專案或需求...",
+      "submitButton": "發送訊息"
+    },
+    "info": {
+      "email": "電子郵件",
+      "location": "所在地",
+      "locationValue": "台灣, 台北 (新北)",
+      "followMe": "追蹤我"
+    }
+  }
+}
