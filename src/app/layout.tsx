@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import Link from 'next/link';
 
+import { ThemeProvider } from './components/providers';
 import './globals.css';
 
 const glowSans = localFont({
@@ -32,16 +33,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-hant">
+    <html lang="zh-hant" suppressHydrationWarning>
       <body className={`${glowSans.variable} antialiased flex flex-col h-screen`}>
-        <header className="h-16 border-b-2 border-gray-100">
-          <div></div>
-          <Link href={'/'}>
-            <h1>Ted Yin</h1>
-          </Link>
-        </header>
-        <main className="flex-1 overflow-y-auto">{children}</main>
-        <aside className="border-t-2 border-gray-100 h-14 block md:hidden"></aside>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <header className="h-16 border-b-2 border-gray-100">
+            <div></div>
+            <Link href={'/'}>
+              <h1>Ted Yin</h1>
+            </Link>
+          </header>
+          <main className="flex-1 overflow-y-auto">{children}</main>
+          <aside className="border-t-2 border-gray-100 h-14 block md:hidden"></aside>
+        </ThemeProvider>
       </body>
     </html>
   );
