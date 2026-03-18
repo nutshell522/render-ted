@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/nextjs-vite';
 
