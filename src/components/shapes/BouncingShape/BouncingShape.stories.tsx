@@ -27,7 +27,7 @@ export const SingleLetter: Story = {
     letterY: -40,
     delay: 0,
     shouldAnimate: true,
-    children: <rect x="-40" y="-80" width="80" height="80" rx="8" fill="#111827" />,
+    children: <rect x="-40" y="-80" width="80" height="80" rx="8" className="fill-current" />,
   },
 };
 

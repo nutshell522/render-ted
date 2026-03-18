@@ -33,7 +33,7 @@ export const BouncingShape: React.FC<BouncingShapeProps> = ({
   return (
     <svg
       viewBox="0 0 100 200"
-      className={`w-24 h-48 overflow-visible`}
+      className="w-24 h-48 overflow-visible text-gray-900 dark:text-gray-100"
       onMouseEnter={handleMouseEnter}
     >
       <g transform="translate(50, 100)">
@@ -49,12 +49,12 @@ export const BouncingShape: React.FC<BouncingShapeProps> = ({
           <text
             x="0"
             y={letterY}
-            fill="#F9FAFB"
             fontSize="48"
             fontWeight="bold"
             textAnchor="middle"
             dominantBaseline="central"
             style={{ fontFamily: 'sans-serif' }}
+            className="fill-gray-50 dark:fill-gray-900"
           >
             {letter}
           </text>

@@ -11,6 +11,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "storybook": "storybook dev -p 6006",
+    "storybook:clean": "node -e \"require('fs').rmSync('node_modules/.cache/storybook', { recursive: true, force: true })\"",
     "build-storybook": "storybook build",
     "prepare": "husky"
   },
@@ -42,7 +43,7 @@
     "@chromatic-com/storybook": "^5.0.1",
     "@storybook/addon-a11y": "^10.2.16",
     "@storybook/addon-docs": "^10.2.16",
-    "@storybook/addon-onboarding": "^10.2.16",
+    "@storybook/addon-themes": "^10.2.19",
     "@storybook/addon-vitest": "^10.2.16",
     "@storybook/nextjs-vite": "^10.2.16",
     "@tailwindcss/postcss": "^4",

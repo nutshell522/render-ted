@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { AnimatedTed } from './AnimatedTed';
 
 const meta: Meta<typeof AnimatedTed> = {
-  title: 'Components/Animations/AnimatedCounter',
+  title: 'Components/Animations/AnimatedTed',
   component: AnimatedTed,
   parameters: {
     layout: 'centered',
