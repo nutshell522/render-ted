@@ -1,8 +1,9 @@
-type NavigationMessages = typeof import('../messages/zh-TW/Navigation.json');
-type HeroMessages = typeof import('../messages/zh-TW/Hero.json');
-type AboutMessages = typeof import('../messages/zh-TW/About.json');
-type PortfolioMessages = typeof import('../messages/zh-TW/Portfolio.json');
-type ContactMessages = typeof import('../messages/zh-TW/Contact.json');
+type NavigationMessages = typeof import('../content/locales/zh-TW/Navigation.json');
+type HeroMessages = typeof import('../content/locales/zh-TW/Hero.json');
+type AboutMessages = typeof import('../content/locales/zh-TW/About.json');
+type PortfolioMessages = typeof import('../content/locales/zh-TW/Portfolio.json');
+type ContactMessages = typeof import('../content/locales/zh-TW/Contact.json');
+type PersonalMessages = typeof import('../content/locales/zh-TW/Personal.json');
 
 declare interface IntlMessages {
   Navigation: NavigationMessages;
@@ -10,4 +11,5 @@ declare interface IntlMessages {
   About: AboutMessages;
   Portfolio: PortfolioMessages;
   Contact: ContactMessages;
+  Personal: PersonalMessages;
 }

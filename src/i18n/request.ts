@@ -8,11 +8,12 @@ export default getRequestConfig(async ({ locale }) => {
   return {
     locale: validLocale,
     messages: {
-      Navigation: (await import(`./messages/${validLocale}/Navigation.json`)).default,
-      Hero: (await import(`./messages/${validLocale}/Hero.json`)).default,
-      About: (await import(`./messages/${validLocale}/About.json`)).default,
-      Portfolio: (await import(`./messages/${validLocale}/Portfolio.json`)).default,
-      Contact: (await import(`./messages/${validLocale}/Contact.json`)).default,
+      Navigation: (await import(`../content/locales/${validLocale}/Navigation.json`)).default,
+      Hero: (await import(`../content/locales/${validLocale}/Hero.json`)).default,
+      About: (await import(`../content/locales/${validLocale}/About.json`)).default,
+      Portfolio: (await import(`../content/locales/${validLocale}/Portfolio.json`)).default,
+      Contact: (await import(`../content/locales/${validLocale}/Contact.json`)).default,
+      Personal: (await import(`../content/locales/${validLocale}/Personal.json`)).default,
     },
   };
 });

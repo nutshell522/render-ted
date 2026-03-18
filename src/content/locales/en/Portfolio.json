@@ -1,0 +1,37 @@
+{
+  "title": "Portfolio",
+  "subtitle": "Recent projects I’ve worked on",
+  "searchPlaceholder": "Search projects...",
+  "links": {
+    "demo": "Live Demo",
+    "code": "Source code"
+  },
+  "projects": [
+    {
+      "id": "ecommerce",
+      "title": "E-commerce platform",
+      "description": "A full-featured online shop with cart, checkout, and payment integration.",
+      "tags": ["React", "Next.js", "Tailwind", "Stripe"],
+      "features": [
+        "Optimized product filtering with React Query caching, reducing API requests by 60%",
+        "Integrated Stripe to build a responsive checkout flow with multiple payment methods",
+        "Built a shared UI component library with Storybook to improve team efficiency"
+      ],
+      "demoUrl": "https://example.com",
+      "repoUrl": "https://github.com"
+    },
+    {
+      "id": "task-management",
+      "title": "Task management system",
+      "description": "A project management tool with real-time updates and team collaboration.",
+      "tags": ["React", "TypeScript", "Socket.io", "Node.js"],
+      "features": [
+        "Designed a real-time sync system with Socket.io supporting 1000+ concurrent connections",
+        "Implemented a drag-and-drop board with optimistic UI updates for instant feedback",
+        "Built role-based access control (RBAC)"
+      ],
+      "demoUrl": "https://example.com",
+      "repoUrl": "https://github.com"
+    }
+  ]
+}

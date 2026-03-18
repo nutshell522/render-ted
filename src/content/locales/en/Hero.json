@@ -1,0 +1,18 @@
+{
+  "name": "Ted Yin",
+  "introCodeSnippet": {
+    "comment1": "// A passionate React frontend engineer",
+    "comment2": "// Focused on UI, performance, and motion."
+  },
+  "technicalProficiency": "Technical skills",
+  "activityOverview": "Highlights",
+  "activityTags": [
+    "2023–2024 technical track",
+    "10+ real-world projects",
+    "Focused on the Next.js ecosystem"
+  ],
+  "cta": {
+    "viewWork": "View work",
+    "getInTouch": "Get in touch"
+  }
+}

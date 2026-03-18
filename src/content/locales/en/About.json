@@ -1,0 +1,32 @@
+{
+  "title": "About",
+  "profileSummary": {
+    "title": "Profile",
+    "content": "I’m a frontend engineer focused on the React ecosystem (building in production since Oct 2023). I work with React, TypeScript, and Next.js, and I’ve integrated Docker-based deployments and analytics tools like Adobe Analytics. I enjoy building highly interactive, maintainable modern web applications."
+  },
+  "techStack": {
+    "title": "Tech stack",
+    "frontend": "Frontend",
+    "architecture": "Architecture & tooling",
+    "dataMarketing": "Data & marketing tools"
+  },
+  "workExperience": {
+    "title": "Experience",
+    "list": [
+      {
+        "company": "Direct International Co., Ltd.",
+        "role": "Full-stack / Frontend Engineer",
+        "period": "Oct 2023 - Present",
+        "achievements": [
+          "Improved system architecture to speed up page load times",
+          "Introduced automated testing to reduce production incidents",
+          "Collaborated cross-functionally to ensure delivery quality"
+        ]
+      }
+    ]
+  },
+  "learningGoals": {
+    "title": "Learning & goals",
+    "content": "Continuously improving frontend and architecture skills while actively strengthening English communication (preparing for TOEIC), aiming to collaborate smoothly with international teams."
+  }
+}

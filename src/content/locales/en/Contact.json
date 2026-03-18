@@ -1,0 +1,19 @@
+{
+  "title": "Contact",
+  "subtitle": "Have an idea or a collaboration in mind? Let’s talk.",
+  "form": {
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Briefly describe your project or needs...",
+    "submitButton": "Send message"
+  },
+  "info": {
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Taipei, Taiwan",
+    "followMe": "Follow me"
+  }
+}

@@ -8,5 +8,5 @@ export default createMiddleware({
 
 export const config = {
   // 匹配所有需要處理 i18n 的路由，排除 API、靜態檔案 (_next, public 等)
-  matcher: ['/', '/(zh-tw|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/', '/(zh-TW|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
 };
