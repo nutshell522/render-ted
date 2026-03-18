@@ -5,7 +5,7 @@ export const glowSansTC = localFont({
     {
       path: './glow-sans-tc-light.otf',
       weight: '300',
-      style: 'normal',
+      style: 'light',
     },
     {
       path: './glow-sans-tc-regular.otf',
@@ -15,7 +15,7 @@ export const glowSansTC = localFont({
     {
       path: './glow-sans-tc-bold.otf',
       weight: '700',
-      style: 'normal',
+      style: 'bold',
     },
   ],
   variable: '--font-glow-sans-tc',

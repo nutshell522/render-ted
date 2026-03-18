@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
-import Link from 'next/link';
 
 import { Analytics } from '@vercel/analytics/next';
 
 import '@/app/globals.css';
+import { Header } from '@/components/layouts/Header/Header';
 import { ThemeProvider } from '@/components/providers';
 import { glowSansTC } from '@/fonts/glowSans';
 import { DEFAULT_LOCALE, isSupportedLocale } from '@/i18n';
@@ -34,7 +34,6 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   setRequestLocale(validLocale);
   const messages = await getMessages();
-  const tPersonal = await getTranslations('Personal');
 
   return (
     <html lang={validLocale} suppressHydrationWarning>
@@ -46,14 +45,9 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
             enableSystem
             disableTransitionOnChange
           >
-            <header className="h-16 border-b-2 border-gray-100">
-              <div></div>
-              <Link href={'/'}>
-                <h1>{tPersonal('name')}</h1>
-              </Link>
-            </header>
-            <main className="flex-1 overflow-y-auto">{children}</main>
-            <aside className="border-t-2 border-gray-100 h-14 block md:hidden"></aside>
+            <Header />
+            <main className="flex-1 pt-16 pb-20 md:pb-0">{children}</main>
+            <nav className="fixed bottom-0 left-0 z-50 border-t-2 border-gray-100 h-14 w-full bg-background block md:hidden"></nav>
           </ThemeProvider>
         </NextIntlClientProvider>
         <Analytics />
