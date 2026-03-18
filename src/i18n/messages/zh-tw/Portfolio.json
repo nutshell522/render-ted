@@ -1,0 +1,37 @@
+{
+  "title": "作品集",
+  "subtitle": "我近期參與與開發的專案",
+  "searchPlaceholder": "搜尋專案...",
+  "links": {
+    "demo": "Live Demo",
+    "code": "原始碼"
+  },
+  "projects": [
+    {
+      "id": "ecommerce",
+      "title": "電子商務平台",
+      "description": "具備購物車、結帳流程及金流串接的完整線上購物平台。",
+      "tags": ["React", "Next.js", "Tailwind", "Stripe"],
+      "features": [
+        "使用 React Query 快取優化商品篩選功能，減少 60% API 請求",
+        "串接 Stripe 建立支援多元支付的響應式結帳流程",
+        "使用 Storybook 建立可共用的 UI 元件庫，提升團隊開發效率"
+      ],
+      "demoUrl": "https://example.com",
+      "repoUrl": "https://github.com"
+    },
+    {
+      "id": "task-management",
+      "title": "任務管理系統",
+      "description": "具備即時更新與團隊協作功能的專案管理工具。",
+      "tags": ["React", "TypeScript", "Socket.io", "Node.js"],
+      "features": [
+        "使用 Socket.io 架構即時同步系統，可承受 1000+ 並行連線",
+        "實作拖曳式 (Drag-and-drop) 看板，並加上樂觀 UI 更新 (Optimistic UI) 提供即時回饋",
+        "建立基於角色的權限控管系統 (RBAC)"
+      ],
+      "demoUrl": "https://example.com",
+      "repoUrl": "https://github.com"
+    }
+  ]
+}

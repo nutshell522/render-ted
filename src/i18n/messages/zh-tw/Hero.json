@@ -1,0 +1,14 @@
+{
+  "name": "Ted Yin",
+  "introCodeSnippet": {
+    "comment1": "// 一位充滿熱情的 React 前端工程師",
+    "comment2": "// 專注於使用者介面、效能優化與互動動畫。"
+  },
+  "technicalProficiency": "技術能力",
+  "activityOverview": "活動總覽",
+  "activityTags": ["2023-2024 技術路線", "10+ 實務專案", "專注於 Next.js 生態"],
+  "cta": {
+    "viewWork": "查看作品",
+    "getInTouch": "與我聯絡"
+  }
+}

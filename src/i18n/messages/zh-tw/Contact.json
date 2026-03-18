@@ -1,0 +1,19 @@
+{
+  "title": "與我聯絡",
+  "subtitle": "有任何專案想法或合作機會嗎？隨時歡迎聊聊。",
+  "form": {
+    "nameLabel": "姓名",
+    "namePlaceholder": "您的姓名",
+    "emailLabel": "電子郵件",
+    "emailPlaceholder": "your@email.com",
+    "messageLabel": "訊息內容",
+    "messagePlaceholder": "請簡述您的專案或需求...",
+    "submitButton": "發送訊息"
+  },
+  "info": {
+    "email": "電子郵件",
+    "location": "所在地",
+    "locationValue": "台灣, 台北 (新北)",
+    "followMe": "追蹤我"
+  }
+}

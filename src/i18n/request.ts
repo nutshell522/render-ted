@@ -7,6 +7,12 @@ export default getRequestConfig(async ({ locale }) => {
 
   return {
     locale: validLocale,
-    messages: (await import(`./messages/${validLocale}.json`)).default,
+    messages: {
+      Navigation: (await import(`./messages/${validLocale}/Navigation.json`)).default,
+      Hero: (await import(`./messages/${validLocale}/Hero.json`)).default,
+      About: (await import(`./messages/${validLocale}/About.json`)).default,
+      Portfolio: (await import(`./messages/${validLocale}/Portfolio.json`)).default,
+      Contact: (await import(`./messages/${validLocale}/Contact.json`)).default,
+    },
   };
 });
