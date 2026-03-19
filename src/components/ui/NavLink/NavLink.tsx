@@ -24,36 +24,32 @@ export const NavLink: React.FC<NavLinkProps> = ({
 }) => {
   const pathname = usePathname();
   const isActive =
-    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}`);
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
-  const handleActiveAnchorClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const handleNavLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (isActive) {
+      e.preventDefault(); // 當前頁面不導航
+      return;
+    }
     onClick?.(e);
   };
 
   return (
-    <>
-      {isActive && (
-        <a
-          href={href}
-          aria-current="page"
-          className={clsx('text-md text-primary font-bold cursor-default', className)}
-          onClick={handleActiveAnchorClick}
-          {...props}
-        >
-          {children}
-        </a>
+    <Link
+      href={href}
+      aria-current={isActive ? 'page' : undefined}
+      data-active={isActive}
+      className={clsx(
+        'text-md transition-colors',
+        isActive
+          ? 'text-primary font-bold cursor-default pointer-events-none'
+          : 'text-gray-800 dark:text-gray-200 hover:text-primary',
+        className,
       )}
-      {!isActive && (
-        <Link
-          className={clsx('text-md text-gray-800 dark:text-gray-200 hover:text-primary', className)}
-          href={href}
-          onClick={onClick}
-          {...props}
-        >
-          {children}
-        </Link>
-      )}
-    </>
+      onClick={handleNavLinkClick}
+      {...props}
+    >
+      {children}
+    </Link>
   );
 };
