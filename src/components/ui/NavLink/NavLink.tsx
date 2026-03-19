@@ -12,15 +12,15 @@ export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 /**
  * 導覽連結：依目前路徑判斷是否為當前頁。
- * - 非當前頁：使用 i18n `Link` 可正常導向。
- * - 當前頁：改為 `<a>` 並標示 `aria-current="page"`，以 `preventDefault` 避免重複導向（視覺上不可點、行為上不導航）。
+ * - 一律使用 i18n `Link` 以維持語系路由。
+ * - 當前頁：`aria-current="page"`、`preventDefault` 避免重複導向；保留鍵盤焦點樣式（不使用 `pointer-events-none`）。
  */
 export const NavLink: React.FC<NavLinkProps> = ({
   children,
   className,
   href,
   onClick,
-  ...props
+  ...rest
 }) => {
   const pathname = usePathname();
   const isActive =
@@ -28,7 +28,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
 
   const handleNavLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
     if (isActive) {
-      e.preventDefault(); // 當前頁面不導航
+      e.preventDefault();
       return;
     }
     onClick?.(e);
@@ -37,17 +37,19 @@ export const NavLink: React.FC<NavLinkProps> = ({
   return (
     <Link
       href={href}
+      prefetch={!isActive}
       aria-current={isActive ? 'page' : undefined}
       data-active={isActive}
       className={clsx(
-        'text-md transition-colors',
+        'text-md transition-colors rounded-md',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         isActive
-          ? 'text-primary font-bold cursor-default pointer-events-none'
+          ? 'text-primary font-bold cursor-default'
           : 'text-gray-800 dark:text-gray-200 hover:text-primary',
         className,
       )}
       onClick={handleNavLinkClick}
-      {...props}
+      {...rest}
     >
       {children}
     </Link>

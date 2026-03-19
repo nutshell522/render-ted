@@ -34,6 +34,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   setRequestLocale(validLocale);
   const messages = await getMessages();
+  const tNav = await getTranslations({ locale: validLocale, namespace: 'Navigation' });
 
   return (
     <html lang={validLocale} suppressHydrationWarning>
@@ -45,9 +46,21 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
             enableSystem
             disableTransitionOnChange
           >
+            <a href="#main-content" className="skip-link">
+              {tNav('skipToMain')}
+            </a>
             <Header />
-            <main className="flex-1 pt-16 pb-20 md:pb-0">{children}</main>
-            <nav className="fixed bottom-0 left-0 z-50 border-t-2 border-gray-100 h-14 w-full bg-background block md:hidden"></nav>
+            <main
+              id="main-content"
+              tabIndex={-1}
+              className="flex-1 pt-16 pb-20 md:pb-0 outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              {children}
+            </main>
+            <nav
+              className="fixed bottom-0 left-0 z-50 border-t-2 border-gray-100 h-14 w-full bg-background block md:hidden"
+              aria-hidden="true"
+            />
           </ThemeProvider>
         </NextIntlClientProvider>
         <Analytics />

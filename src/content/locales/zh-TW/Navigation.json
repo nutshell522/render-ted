@@ -5,5 +5,8 @@
   "contact": "聯絡我",
   "resume": "下載履歷",
   "toggleTheme": "切換深淺色",
-  "toggleLanguage": "切換語言"
+  "toggleLanguage": "切換語言",
+  "skipToMain": "跳至主要內容",
+  "mainNavAriaLabel": "主要導覽",
+  "homeLinkAriaLabel": "返回首頁：{site}"
 }

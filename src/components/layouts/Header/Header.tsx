@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 
 import { NavLink } from '@/components/ui/NavLink';
@@ -8,27 +9,36 @@ import { Link } from '@/i18n';
  * Header 元件：網站的固定頂部導覽列。
  *
  * - 顯示個人 Logo 與站名（取自 `personal.title`）
- * - 提供主要導覽連結（使用 i18n 的 `Link` 以支援語系路由）
+ * - 主要導覽使用 `aria-label`（i18n）與 `NavLink` 的 `aria-current="page"` 標示目前頁
+ * - 首頁連結以 `aria-label` 統一朗讀，避免圖片 alt 與站名重複唸讀
  */
-export const Header: React.FC = () => {
+export async function Header() {
   const { title } = personal;
+  const t = await getTranslations('Navigation');
 
   return (
     <header className="fixed top-0 left-0 z-50 bg-background/85 backdrop-blur-md h-16 w-full border-b-2 border-gray-100 px-10">
       <div className="h-full flex gap-10">
-        {/* LOGO */}
-        <Link href="/" className="flex h-full items-center gap-1">
-          <Image src="/ted_logo.png" alt="logo" width={50} height={50} />
-          <h1 className="text-2xl font-bold">{title}</h1>
+        <Link
+          href="/"
+          className="flex h-full items-center gap-1 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          aria-label={t('homeLinkAriaLabel', { site: title })}
+        >
+          <Image src="/ted_logo.png" alt="" width={50} height={50} />
+          <span className="text-2xl font-bold" aria-hidden="true">
+            {title}
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex h-full items-center gap-6">
-          <NavLink href="/about">關於我</NavLink>
-          <NavLink href="/portfolio">作品集</NavLink>
-          <NavLink href="/contact">聯絡我</NavLink>
+        <nav
+          className="hidden md:flex h-full items-center gap-6"
+          aria-label={t('mainNavAriaLabel')}
+        >
+          <NavLink href="/about">{t('about')}</NavLink>
+          <NavLink href="/portfolio">{t('portfolio')}</NavLink>
+          <NavLink href="/contact">{t('contact')}</NavLink>
         </nav>
       </div>
     </header>
   );
-};
+}

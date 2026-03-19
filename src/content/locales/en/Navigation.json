@@ -5,5 +5,8 @@
   "contact": "Contact",
   "resume": "Download resume",
   "toggleTheme": "Toggle theme",
-  "toggleLanguage": "Switch language"
+  "toggleLanguage": "Switch language",
+  "skipToMain": "Skip to main content",
+  "mainNavAriaLabel": "Main navigation",
+  "homeLinkAriaLabel": "Go to homepage: {site}"
 }
