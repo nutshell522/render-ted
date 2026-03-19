@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { NavLink } from '@/components/ui/NavLink';
 import { personal } from '@/content/config/personal';
 import { Link } from '@/i18n';
 
@@ -19,10 +20,10 @@ export const Header: React.FC = () => {
           <Image src="/ted_logo.png" alt="logo" width={50} height={50} />
           <h1 className="text-2xl font-bold">{title}</h1>
         </Link>
-        <nav className="flex h-full items-center gap-6 text-md text-gray-500">
-          <Link href="/about">關於我</Link>
-          <Link href="/portfolio">作品集</Link>
-          <Link href="/contact">聯絡我</Link>
+        <nav className="flex h-full items-center gap-6">
+          <NavLink href="/about">關於我</NavLink>
+          <NavLink href="/portfolio">作品集</NavLink>
+          <NavLink href="/contact">聯絡我</NavLink>
         </nav>
       </div>
     </header>
