@@ -14,6 +14,7 @@ export default getRequestConfig(async ({ locale }) => {
       Portfolio: (await import(`../content/locales/${validLocale}/Portfolio.json`)).default,
       Contact: (await import(`../content/locales/${validLocale}/Contact.json`)).default,
       Personal: (await import(`../content/locales/${validLocale}/Personal.json`)).default,
+      NotFound: (await import(`../content/locales/${validLocale}/NotFound.json`)).default,
     },
   };
 });
