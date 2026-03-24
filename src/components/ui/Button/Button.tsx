@@ -1,56 +1,81 @@
-import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
+import * as React from 'react';
 
-import clsx from 'clsx';
+import { type VariantProps, cva } from 'class-variance-authority';
+import { Slot } from 'radix-ui';
 
-interface ButtonBaseProps {
-  /** 按鈕內容，可放文字或圖示等 React 節點 */
-  children: ReactNode;
-  /** 視覺樣式，預設為 primary */
-  variant?: 'primary' | 'secondary';
-  /** 額外 className，供外部覆寫或擴充 */
-  className?: string;
-  /** 是否啟用外框模式 */
-  outline?: boolean;
-}
+import { cn } from '@/lib/utils';
 
-/** 通用 Button props，支援透過 `as` 切換底層元素（例如 button、a） */
-export type ButtonProps<T extends ElementType> = ButtonBaseProps & {
-  /** 指定要渲染的元素類型 */
-  as?: T;
-} & Omit<ComponentPropsWithoutRef<T>, keyof ButtonBaseProps | 'as'>;
+/**
+ * Button 的樣式變體定義（shadcn 風格）
+ * - `variant`：控制視覺語意（default / secondary / outline / ghost / link / destructive）
+ * - `size`：控制按鈕尺寸與 icon 比例
+ */
+const buttonVariants = cva(
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        destructive:
+          'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40',
+        outline:
+          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50',
+        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+        link: 'text-primary underline-offset-4 hover:underline',
+      },
+      size: {
+        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
+        xs: "h-6 gap-1 rounded-md px-2 text-xs has-[>svg]:px-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: 'h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5',
+        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
+        icon: 'size-9',
+        'icon-xs': "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
+        'icon-sm': 'size-8',
+        'icon-lg': 'size-10',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  },
+);
+
+/** Button 元件 props（含 shadcn 變體 + 原生 button 屬性） */
+type ButtonProps = React.ComponentProps<'button'> &
+  VariantProps<typeof buttonVariants> & {
+    /**
+     * 啟用後以 Slot 注入子元素，常用於 `<a>`、`Link` 等自訂可點擊元素。
+     * 例：`<Button asChild><a ...>...</a></Button>`
+     */
+    asChild?: boolean;
+  };
 
 /**
  * 通用按鈕元件
- * - 預設使用語意化色票（primary / secondary）
- * - 內建 focus 與 disabled 狀態
- * - 可透過 `as` 轉成連結或其他元素
+ * - 使用 `buttonVariants` 管理 variant / size
+ * - 內建 focus、disabled、invalid 狀態樣式
+ * - 可透過 `asChild` 將樣式套用到其他元素
  */
-export const Button = <T extends ElementType = 'button'>({
-  as,
-  variant = 'primary',
-  children,
+function Button({
   className,
-  outline = false,
+  variant = 'default',
+  size = 'default',
+  asChild = false,
   ...props
-}: ButtonProps<T>) => {
-  const Component = as || 'button';
-
-  // 基礎互動樣式：尺寸、字重、focus ring、disabled 狀態
-  const baseStyles =
-    'inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-semibold transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50';
-
-  // 外框模式：保留透明背景並使用設計 token 邊框色
-  const outlineStyle = outline ? 'border border-border bg-transparent' : '';
-
-  // 依 variant 套用語意化主題色
-  const variantStyles =
-    variant === 'primary'
-      ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-      : 'bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground';
+}: ButtonProps) {
+  const Comp = asChild ? Slot.Root : 'button';
 
   return (
-    <Component className={clsx(baseStyles, outlineStyle, variantStyles, className)} {...props}>
-      {children}
-    </Component>
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
   );
-};
+}
+
+export { Button, buttonVariants };
