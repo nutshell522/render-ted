@@ -35,7 +35,7 @@ import {
  * 組合示範：僅供 Storybook 展示，非對外匯出的元件。
  */
 function DropdownMenuStoryShell({ children }: { children: React.ReactNode }) {
-  return <div className="flex min-h-[280px] w-full items-start justify-center p-8">{children}</div>;
+  return <div className="flex min-h-70 w-full items-start justify-center p-8">{children}</div>;
 }
 
 const meta = {
