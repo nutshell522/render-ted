@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { Mail } from 'lucide-react';
 
-import { Button } from './Button';
+import { Button } from './button';
 
 const meta: Meta<typeof Button> = {
   title: 'Components/UI/Button',
@@ -55,33 +55,35 @@ export const LinkButton: Story = {
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-3">
-      <Button variant="default">Default</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="link">Link</Button>
-      <Button variant="destructive">Destructive</Button>
+      <Button variant="default">預設</Button>
+      <Button variant="secondary">次要</Button>
+      <Button variant="outline">外框</Button>
+      <Button variant="ghost">幽靈</Button>
+      <Button variant="link">連結</Button>
+      <Button variant="destructive">危險</Button>
     </div>
   ),
 };
 
+const mailAria = '寄送信件';
+
 export const AllSizes: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-3">
-      <Button size="xs">XS</Button>
-      <Button size="sm">SM</Button>
-      <Button size="default">Default</Button>
-      <Button size="lg">LG</Button>
-      <Button size="icon" aria-label="寄送信件">
+      <Button size="xs">特小</Button>
+      <Button size="sm">小</Button>
+      <Button size="default">預設</Button>
+      <Button size="lg">大</Button>
+      <Button size="icon" aria-label={mailAria}>
         <Mail />
       </Button>
-      <Button size="icon-xs" aria-label="寄送信件">
+      <Button size="icon-xs" aria-label={mailAria}>
         <Mail />
       </Button>
-      <Button size="icon-sm" aria-label="寄送信件">
+      <Button size="icon-sm" aria-label={mailAria}>
         <Mail />
       </Button>
-      <Button size="icon-lg" aria-label="寄送信件">
+      <Button size="icon-lg" aria-label={mailAria}>
         <Mail />
       </Button>
     </div>
@@ -91,9 +93,9 @@ export const AllSizes: Story = {
 export const DisabledState: Story = {
   render: () => (
     <div className="flex items-center gap-3">
-      <Button disabled>Disabled</Button>
+      <Button disabled>已停用</Button>
       <Button variant="secondary" disabled>
-        Disabled Secondary
+        已停用（次要）
       </Button>
     </div>
   ),

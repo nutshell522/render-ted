@@ -1,14 +1,14 @@
 import * as React from 'react';
 
+import { Slot } from '@radix-ui/react-slot';
 import { type VariantProps, cva } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
 
 import { cn } from '@/lib/utils';
 
 /**
- * Button 的樣式變體定義（shadcn 風格）
- * - `variant`：控制視覺語意（default / secondary / outline / ghost / link / destructive）
- * - `size`：控制按鈕尺寸與 icon 比例
+ * Button 的樣式變體定義（shadcn 風格，使用 CVA）
+ * - `variant`：default、secondary、outline、ghost、link、destructive
+ * - `size`：文字按鈕尺寸，以及 icon、icon-xs、icon-sm、icon-lg 等圖示按鈕
  */
 const buttonVariants = cva(
   "inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -42,40 +42,37 @@ const buttonVariants = cva(
   },
 );
 
-/** Button 元件 props（含 shadcn 變體 + 原生 button 屬性） */
-type ButtonProps = React.ComponentProps<'button'> &
+export type ButtonProps = React.ComponentProps<'button'> &
   VariantProps<typeof buttonVariants> & {
     /**
-     * 啟用後以 Slot 注入子元素，常用於 `<a>`、`Link` 等自訂可點擊元素。
-     * 例：`<Button asChild><a ...>...</a></Button>`
+     * 設為 true 時改以 Slot 渲染子元素，常用於 `<Button asChild><a ...>...</a></Button>`。
      */
     asChild?: boolean;
   };
 
 /**
- * 通用按鈕元件
- * - 使用 `buttonVariants` 管理 variant / size
- * - 內建 focus、disabled、invalid 狀態樣式
- * - 可透過 `asChild` 將樣式套用到其他元素
+ * Button 元件：套用 `buttonVariants`，並處理 focus／disabled／invalid 等狀態；
+ * 可搭配 `asChild` 將樣式套到連結或其他元素上。
+ *
+ * 使用 `forwardRef` 讓表單、可及性 API 與父層能正確取得底層 DOM ref。
  */
-function Button({
-  className,
-  variant = 'default',
-  size = 'default',
-  asChild = false,
-  ...props
-}: ButtonProps) {
-  const Comp = asChild ? Slot.Root : 'button';
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'default', size = 'default', asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : 'button';
 
-  return (
-    <Comp
-      data-slot="button"
-      data-variant={variant}
-      data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  );
-}
+    return (
+      <Comp
+        ref={ref}
+        data-slot="button"
+        data-variant={variant}
+        data-size={size}
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      />
+    );
+  },
+);
+
+Button.displayName = 'Button';
 
 export { Button, buttonVariants };

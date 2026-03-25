@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import { DEFAULT_LOCALE } from '@/i18n';
 
-import { NavLink } from './NavLink';
+import { NavLink } from './nav-link';
 
 const meta: Meta<typeof NavLink> = {
   title: 'Components/UI/NavLink',
@@ -33,7 +33,7 @@ const meta: Meta<typeof NavLink> = {
 export default meta;
 type Story = StoryObj<typeof NavLink>;
 
-/** 目前路由為首頁、`href` 為 `/` 時為選取狀態（`<a>` + `aria-current`）。 */
+/** 目前路由為首頁，`href="/"` 時應為當前頁狀態。 */
 export const ActiveHome: Story = {
   parameters: {
     nextjs: {
@@ -48,7 +48,7 @@ export const ActiveHome: Story = {
   },
 };
 
-/** 目前路由與 `href` 一致時為選取狀態。 */
+/** 目前路由與 `href` 完全一致。 */
 export const ActiveSection: Story = {
   parameters: {
     nextjs: {
@@ -63,7 +63,7 @@ export const ActiveSection: Story = {
   },
 };
 
-/** `pathname` 以 `href` 為前綴時視為該區塊啟用（例如子頁）。 */
+/** `pathname` 為 `href` 的子路徑時，依規則仍視為啟用。 */
 export const ActiveNestedPath: Story = {
   parameters: {
     nextjs: {
@@ -78,7 +78,7 @@ export const ActiveNestedPath: Story = {
   },
 };
 
-/** 非目前頁：可點擊的 i18n `Link`。 */
+/** 與目前路由不符的一般連結。 */
 export const Inactive: Story = {
   parameters: {
     nextjs: {

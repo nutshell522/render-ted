@@ -1,5 +1,7 @@
 'use client';
-import { FC, useEffect, useState } from 'react';
+
+import type { ReactElement } from 'react';
+import { useEffect, useState } from 'react';
 
 import { animate, motion, useMotionValue, useTransform } from 'motion/react';
 
@@ -10,15 +12,16 @@ export interface AnimatedCounterProps {
 }
 
 /**
- * 動態數字跳動元件 (Animated Counter)
- * * 透過 Framer Motion 的 useMotionValue 達到平滑的數字遞增效果。
- * * 數字跳動過程中不會顯示後綴，跳動結束後才會平滑淡入後綴符號。
+ * 動態數字跳動元件（Animated Counter）
+ *
+ * 透過 Motion（motion/react）的 `useMotionValue` 達成平滑遞增。
+ * 動畫進行中不顯示後綴，結束後再淡入後綴文字。
  */
-export const AnimatedCounter: FC<AnimatedCounterProps> = ({
+export function AnimatedCounter({
   targetValue = 10,
   duration = 0.8,
   suffix = '+',
-}) => {
+}: AnimatedCounterProps): ReactElement {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const [isDone, setIsDone] = useState(false);
@@ -54,4 +57,4 @@ export const AnimatedCounter: FC<AnimatedCounterProps> = ({
       )}
     </motion.div>
   );
-};
+}

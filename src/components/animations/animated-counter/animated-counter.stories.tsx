@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { AnimatedCounter } from './AnimatedCounter';
+import { AnimatedCounter } from './animated-counter';
 
 const meta: Meta<typeof AnimatedCounter> = {
   title: 'Components/Animations/AnimatedCounter',
@@ -17,7 +17,7 @@ const meta: Meta<typeof AnimatedCounter> = {
 export default meta;
 type Story = StoryObj<typeof AnimatedCounter>;
 
-// 基本用法
+// 基本展示
 export const Default: Story = {
   args: {
     targetValue: 100,
@@ -35,7 +35,7 @@ export const LargeNumber: Story = {
   },
 };
 
-// 快速跳動
+// 短時間內跑完動畫
 export const Fast: Story = {
   args: {
     targetValue: 50,

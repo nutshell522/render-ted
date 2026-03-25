@@ -1,9 +1,10 @@
 'use client';
-import { ReactNode } from 'react';
+
+import type { ReactElement, ReactNode } from 'react';
 
 import { motion } from 'motion/react';
 
-import { useBouncingAnimation } from './useBouncingAnimation';
+import { useBouncingAnimation } from './use-bouncing-animation';
 
 export interface BouncingShapeProps {
   delay: number;
@@ -14,20 +15,21 @@ export interface BouncingShapeProps {
 }
 
 /**
- * BouncingShape 元件：顯示一個帶有文字的 SVG 容器，並套用反彈動畫
- * * @param delay - 動畫初次觸發前的延遲秒數
- * @param letter - 顯示在圖形中央的英文字母
- * @param letterY - 調整文字在 SVG 內部的垂直位移
- * @param children - 背景圖形 (通常是 rect 或 circle)
- * @param shouldAnimate - 是否啟用動畫與 Hover 互動
+ * BouncingShape：顯示一個帶有文字的 SVG 容器，並套用反彈動畫。
+ *
+ * @param delay - 首次播放動畫前的延遲（秒）
+ * @param letter - 顯示在圖形中央的文字
+ * @param letterY - 字母在 SVG 座標中的垂直偏移
+ * @param children - 背景圖形（常見為 rect 或 path）
+ * @param shouldAnimate - 為 false 時不播放動畫，且 hover 不會重播
  */
-export const BouncingShape: React.FC<BouncingShapeProps> = ({
+export function BouncingShape({
   delay,
   letter,
   letterY,
   children,
   shouldAnimate = true,
-}) => {
+}: BouncingShapeProps): ReactElement {
   const { controls, handleMouseEnter } = useBouncingAnimation({ delay, shouldAnimate });
 
   return (
@@ -62,4 +64,4 @@ export const BouncingShape: React.FC<BouncingShapeProps> = ({
       </g>
     </svg>
   );
-};
+}

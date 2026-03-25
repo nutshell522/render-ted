@@ -1,6 +1,6 @@
 'use client';
 
-import { AnchorHTMLAttributes, MouseEvent } from 'react';
+import type { AnchorHTMLAttributes, MouseEvent, ReactElement } from 'react';
 
 import clsx from 'clsx';
 
@@ -15,13 +15,13 @@ export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * - 一律使用 i18n `Link` 以維持語系路由。
  * - 當前頁：`aria-current="page"`、`preventDefault` 避免重複導向；保留鍵盤焦點樣式（不使用 `pointer-events-none`）。
  */
-export const NavLink: React.FC<NavLinkProps> = ({
+export function NavLink({
   children,
   className,
   href,
   onClick,
   ...rest
-}) => {
+}: NavLinkProps): ReactElement {
   const pathname = usePathname();
   const isActive =
     href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
@@ -54,4 +54,4 @@ export const NavLink: React.FC<NavLinkProps> = ({
       {children}
     </Link>
   );
-};
+}

@@ -13,8 +13,8 @@ interface UseBouncingAnimationReturn {
 }
 
 /**
- * BouncingShape 動畫邏輯的 Custom Hook
- * 控制 SVG 元素旋轉、縮放等物理反彈效果
+ * BouncingShape 動畫邏輯的自訂 Hook。
+ * 控制 SVG 元素的旋轉、縮放等反彈效果。
  */
 export const useBouncingAnimation = ({
   delay,

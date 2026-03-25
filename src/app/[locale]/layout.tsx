@@ -5,7 +5,7 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { Analytics } from '@vercel/analytics/next';
 
 import '@/app/globals.css';
-import { Header } from '@/components/layouts/Header/Header';
+import { Header } from '@/components/layouts/header/header';
 import { ThemeProvider } from '@/components/providers';
 import { glowSansTC } from '@/fonts/glowSans';
 import { DEFAULT_LOCALE, isSupportedLocale } from '@/i18n';

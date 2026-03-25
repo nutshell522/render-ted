@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { BouncingShape } from './BouncingShape';
+import { BouncingShape } from './bouncing-shape';
 
 const meta: Meta<typeof BouncingShape> = {
   title: 'Components/Shapes/BouncingShape',
